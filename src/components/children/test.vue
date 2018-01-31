@@ -37,8 +37,8 @@ export default {
 			],
 			search: 'https://www.baidu.com/s?wd=',
 			fastWeb: [
-				{value:'',text:'疯狂音乐'},
-				{value:'',text:'k'}
+				{value:'',text:'test'},
+				{value:'',text:'checkout'}
 			],
 			help: null,
 			keyword: ''
