@@ -11,7 +11,7 @@
 <script>
 import axios from 'axios'
 import ip from '../../js/ipconfig'
-axios.defaults.baseURL=ip||'http://jw3.ngrok.xiaomiqiu.cn';
+axios.defaults.baseURL='http://jw3.ngrok.xiaomiqiu.cn';
 export default {
 	data () {
 		return {
