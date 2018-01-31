@@ -54,11 +54,6 @@ export default {
 		query:function () {
 			window.open(this.search+this.keyword)
 		}
-	},
-	mounted(){ 
-		//const iframe=document.getElementById("iframe")
-		//const height=Math.max(iframe.contentWindow.document.body.scrollHeight,iframe.contentWindow.document.documentElement.scrollHeight)
-		//iframe.style.height=height+'rem'
 	}
 }
 </script>
