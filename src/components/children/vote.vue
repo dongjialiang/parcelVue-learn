@@ -11,7 +11,7 @@
 <script>
 import axios from 'axios'
 import ip from '../../js/ipconfig'
-//axios.defaults.baseURL=ip||'http://127.0.0.1:801';
+axios.defaults.baseURL=ip||'http://jw3.ngrok.xiaomiqiu.cn';
 export default {
 	data () {
 		return {
@@ -31,7 +31,7 @@ export default {
 				this.dismissCountDown = this.dismissSecs,
 				this.classmates[index].approval_rate++
 			},res=>{
-				fetch('http://127.0.0.1:801/add',{
+				fetch(ip+'/add',{
 					method:'post',
 					mode: 'cors',
 					headers: {
@@ -52,7 +52,7 @@ export default {
 		}).then(res=>{
 			this.classmates=res.data
 		},res=>{
-			fetch('http://127.0.0.1:801/user')
+			fetch(ip+'/user')
 			.then(res=>res.json())
 			.then(json=>{
 				this.classmates=json
