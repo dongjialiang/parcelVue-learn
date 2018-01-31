@@ -31,7 +31,7 @@ export default {
 				this.dismissCountDown = this.dismissSecs,
 				this.classmates[index].approval_rate++
 			},res=>{
-				fetch(ip+'/add',{
+				fetch('http://jw3.ngrok.xiaomiqiu.cn/add',{
 					method:'post',
 					mode: 'cors',
 					headers: {
@@ -53,7 +53,7 @@ export default {
 		}).then(res=>{
 			this.classmates=res.data
 		},res=>{
-			fetch(ip+'/user')
+			fetch('http://jw3.ngrok.xiaomiqiu.cn/user')
 			.then(res=>res.json())
 			.then(json=>{
 				this.classmates=json
