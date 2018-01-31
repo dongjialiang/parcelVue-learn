@@ -41,7 +41,8 @@ export default {
 				})
 				.then(res=>res.json())
 				.then(json=>{
-					this.dismissCountDown = this.dismissSecs
+					this.dismissCountDown = this.dismissSecs,
+					this.classmates[index].approval_rate++
 				})
 			})
 		}
