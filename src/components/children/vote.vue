@@ -11,7 +11,7 @@
 <script>
 import axios from 'axios'
 import ip from '../../js/ipconfig'
-axios.defaults.baseURL='https://jw3.ngrok.xiaomiqiu.cn';
+axios.defaults.baseURL='http://jw3.ngrok.xiaomiqiu.cn';
 export default {
 	data () {
 		return {
@@ -31,10 +31,11 @@ export default {
 				this.dismissCountDown = this.dismissSecs,
 				this.classmates[index].approval_rate++
 			},res=>{
-				fetch('https://jw3.ngrok.xiaomiqiu.cn/add',{
+				fetch('http://jw3.ngrok.xiaomiqiu.cn/add',{
 					method:'post',
 					mode: 'cors',
 					headers: {
+						'Access-Control-Allow-Origin': '*',
 						'Content-Type': 'application/json'
 					}, 
 					body:JSON.stringify({'id':this.id})
@@ -53,7 +54,14 @@ export default {
 		}).then(res=>{
 			this.classmates=res.data
 		},res=>{
-			fetch('https://jw3.ngrok.xiaomiqiu.cn/user')
+			fetch('http://jw3.ngrok.xiaomiqiu.cn/user',{
+				method:'get',
+				mode: 'cors',
+				headers: {
+					'Access-Control-Allow-Origin': '*',
+					'Content-Type': 'application/json'
+				}
+			})
 			.then(res=>res.json())
 			.then(json=>{
 				this.classmates=json
