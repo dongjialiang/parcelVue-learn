@@ -13,7 +13,7 @@
             <b-carousel-slide v-for="(item,index) in img" :key="index">
                 <h1>{{captions[index]}}</h1>
                 <p>{{texts[index]}}</p>        
-                <b-img-lazy slot="img" :src="item" fluid-grow alt="image" class="img"/>
+                <b-img slot="img" :src="item" fluid-grow alt="image" class="img"/>
             </b-carousel-slide>
         </b-carousel>
         <content>{{slogan}}</content>
