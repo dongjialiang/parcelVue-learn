@@ -1,9 +1,12 @@
 <template>
     <div>
         <b-carousel id="carousel1"
-            style="text-shadow: 1px 1px 2px #333;"
             controls
             indicators
+            style="text-shadow: 1px 1px 2px #333;"
+            :interval="4000"
+            img-width="1024"
+            img-height="480"
             background="#ababab"
             v-model="slide"
         >
@@ -22,10 +25,17 @@ import image from '../../assets/image/*.png'
 export default {
     data () {
         return {
+            slide:0,
+            sliding: null,
             texts: ['flower','dark','quiet','light'],
             captions: ['Hello','Admit defeat','I love you','promised you'],
             img: image,
             slogan: 'Welcome to my website'
+        }
+    },
+    watch: {
+        slide(){
+            this.$store.state.count=this.slide
         }
     }
 }
