@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import header from '../components/Header.vue'
-import body from '../components/Content.vue'
+import Header from '../components/Header.vue'
+import Content from '../components/Content.vue'
 import content from '../components/children/home.vue'
 import vote from '../components/children/vote.vue'
 import test from '../components/children/test.vue'
@@ -13,7 +13,7 @@ Vue.use(Router)
 const routes=[
     {
         path: '/',
-        components: { header, body },
+        components: { Header, Content },
         children:[
             {
                 path:'',
