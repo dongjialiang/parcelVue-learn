@@ -5,6 +5,7 @@
 			</b-alert>
 			<ul>
 				<li v-for='(user,key) in classmates' :key='user.id'><span>{{user.name}}-支持率：{{user.approval_rate}}</span><b-button @click='add(key)'>支持</b-button></li>
+				<h2 v-show="classmates==''">投票系统已关闭或你的设备不支持</h2>
 			</ul>
 		</div>
 </template>

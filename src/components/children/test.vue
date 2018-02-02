@@ -6,6 +6,7 @@
 			<option disabled :value='null'>请选择</option>
 			<option v-for="option in fastWeb" :key="option.id" :value="option.value">{{option.text}}</option>
 		</b-form-select>
+		<p v-show="search.indexOf('zhihu')>0">建议输入的关键词：‘有哪些’，‘如何’，‘为什么’，‘怎么样’</p>
 	</div>
 </template>
 <script>

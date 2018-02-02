@@ -18,7 +18,7 @@
 export default {
     data () {
         return {
-            img: require('../assets/001Tiny.png'),
+            img: require('../assets/logo.svg'),
             classchange:'default'
         }
     },
