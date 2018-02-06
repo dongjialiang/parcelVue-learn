@@ -5,7 +5,7 @@
                 {{info}} 这条消息将在 {{dismissCountDown}} 秒后消失...
             </b-alert>
         </div>
-        <b-form @keyup="signin">
+        <b-form @keyup="keyup">
             <b-form-input type="text" v-model="name" :state="nameState" placeholder="输入用户名"></b-form-input>
             <span>{{name?nametip[1]:nametip[0]}}</span>
             <b-form-input type="password" v-model="pwd" :state="pwdState" placeholder="输入密码"></b-form-input>
@@ -36,35 +36,38 @@ export default {
     methods: {
         countDownChanged (dismissCountDown) {
 			this.dismissCountDown = dismissCountDown
-		},
-        signin(event) {
+        },
+        keyup (event) {
             if(event.keyCode==38||event.keyCode==40) return
-			if(!this.disabled&&(event.keyCode==undefined||event.keyCode==13)){
-				axios.post('/signin', { name: this.name,pwd: this.pwd }).then(res=>{
-                    if(res.data=='用户名err错误1*88') {
-                        this.variant='danger';
-                        this.dismissCountDown = this.dismissSecs;
-                        this.info='用户名错误'
-                    }
-                    else if(res.data=='密码err错误p1$7') {
-                        this.variant='danger';
-                        this.dismissCountDown = this.dismissSecs;
-                        this.info='密码错误'
-                    }
-                    else
-                    {
-                        this.dismissCountDown = this.dismissSecs;
-                        this.variant='success';
-                        this.info='登录成功'
-                        this.$cookies.set('isLogin','1245465r654fghfgfwcb'+res.data,60*60*24*3)
-                        this.$router.push({path:'/vote'})
-                    }
-                },res=>{
+			if(!this.disabled&&event.keyCode==13){
+                this.signin()
+            }
+        },
+        signin() {
+            axios.post('/signin', { name: this.name,pwd: this.pwd }).then(res=>{
+                if(res.data=='用户名err错误1*88') {
                     this.variant='danger';
                     this.dismissCountDown = this.dismissSecs;
-                    this.info='服务器已关闭'
-                })
-			}
+                    this.info='用户名错误'
+                }
+                else if(res.data=='密码err错误p1$7') {
+                    this.variant='danger';
+                    this.dismissCountDown = this.dismissSecs;
+                    this.info='密码错误'
+                }
+                else
+                {
+                    this.dismissCountDown = this.dismissSecs;
+                    this.variant='success';
+                    this.info='登录成功'
+                    this.$cookies.set('isLogin','1245465r654fghfgfwcb'+res.data,60*60*24*3)
+                    this.$router.push({path:'/vote'})
+                }
+            },res=>{
+                this.variant='danger';
+                this.dismissCountDown = this.dismissSecs;
+                this.info='服务器已关闭'
+            })
         }
     },
     computed: {

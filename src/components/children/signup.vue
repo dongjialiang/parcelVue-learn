@@ -5,7 +5,7 @@
                 {{info}} 这条消息将在 {{dismissCountDown}} 秒后消失...
             </b-alert>
         </div>
-        <b-form @keyup="signup">
+        <b-form @keyup="keyup">
             <b-form-input type="text" v-model="realName" :state="realNameState" placeholder="输入姓名"></b-form-input>
             <span>{{realName?(/^[\u4E00-\u9FA5A-Za-z]+$/).test(realName)?nametip[1]:nametip[4]:nametip[2]}}</span>
             <b-form-input type="text" v-model="studyId" :state="studyIdState" placeholder="输入学号"></b-form-input>
@@ -45,41 +45,42 @@ export default {
     methods: {
         countDownChanged (dismissCountDown) {
 			this.dismissCountDown = dismissCountDown
-		},
-        signup(event) {
+        },
+        keyup (event) {
             if(event.keyCode==38||event.keyCode==40) return
-			if(!this.disabled&&(event.keyCode==undefined||event.keyCode==13)){
-                if (this.pwd==this.confirmPwd) {
-                    axios.post('/signup', { realName: this.realName,studyId: this.studyId,name: this.name,pwd: this.pwd }).then(res=>{
-                        if(res.data.indexOf('si#gtutgdfgs6g7n8up')>-1) {
-                            this.variant='success';
-                            this.dismissCountDown = this.dismissSecs;
-                            this.info='注册成功';
-                            this.$cookies.set('isLogin','1245465r654fghfgfwcb'+res.data.substring(19,res.data.length),60*60*24*3)
-                            this.$router.push({path:'/vote'})
-                        }
-                        if(res.data=='registernetyerrutmd') {
-                            this.variant='danger';
-                            this.dismissCountDown = this.dismissSecs;
-                            this.info='该姓名已注册'
-                        }
-                        if(res.data=='e5uyWxii-;s!t') {
-                            this.variant='danger';
-                            this.dismissCountDown = this.dismissSecs;
-                            this.info='该用户已存在'
-                        }
-                        if(res.data=='\`s#t@u.k7d9yiIDd') {
-                            this.variant='danger';
-                            this.dismissCountDown = this.dismissSecs;
-                            this.info='学号与姓名不符'
-                        }
-                    },res=>{
-                        this.variant='danger';
-                        this.dismissCountDown = this.dismissSecs;
-                        this.info='服务器已关闭'
-                    })
-                }
+			if(!this.disabled&&event.keyCode==13){
+                this.signup()
             }
+        },
+        signup() {
+            axios.post('/signup', { realName: this.realName,studyId: this.studyId,name: this.name,pwd: this.pwd }).then(res=>{
+                if(res.data.indexOf('si#gtutgdfgs6g7n8up')>-1) {
+                    this.variant='success';
+                    this.dismissCountDown = this.dismissSecs;
+                    this.info='注册成功';
+                    this.$cookies.set('isLogin','1245465r654fghfgfwcb'+res.data.substring(19,res.data.length),60*60*24*3)
+                    this.$router.push({path:'/vote'})
+                }
+                if(res.data=='registernetyerrutmd') {
+                    this.variant='danger';
+                    this.dismissCountDown = this.dismissSecs;
+                    this.info='该姓名已注册'
+                }
+                if(res.data=='e5uyWxii-;s!t') {
+                    this.variant='danger';
+                    this.dismissCountDown = this.dismissSecs;
+                    this.info='该用户已存在'
+                }
+                if(res.data=='\`s#t@u.k7d9yiIDd') {
+                    this.variant='danger';
+                    this.dismissCountDown = this.dismissSecs;
+                    this.info='学号与姓名不符'
+                }
+            },res=>{
+                this.variant='danger';
+                this.dismissCountDown = this.dismissSecs;
+                this.info='服务器已关闭'
+            })
         }
     },
     computed: {
