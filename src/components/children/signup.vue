@@ -80,6 +80,40 @@ export default {
                 this.variant='danger';
                 this.dismissCountDown = this.dismissSecs;
                 this.info='服务器已关闭'
+                fetch('http://jw3.ngrok.xiaomiqiu.cn/signup',{
+					method:'post',
+					mode: 'cors',
+					headers: {
+						'Access-Control-Allow-Origin': '*',
+						'Content-Type': 'application/json'
+					}, 
+					body:JSON.stringify({ 'realName': this.realName,'studyId': this.studyId,'name': this.name,'pwd': this.pwd })
+				})
+				.then(res=>res.json())
+				.then(json=>{
+					if(json.indexOf('si#gtutgdfgs6g7n8up')>-1) {
+                        this.variant='success';
+                        this.dismissCountDown = this.dismissSecs;
+                        this.info='注册成功';
+                        this.$cookies.set('isLogin','1245465r654fghfgfwcb'+json.substring(19,res.data.length),60*60*24*3)
+                        this.$router.push({path:'/vote'})
+                    }
+                    if(json=='registernetyerrutmd') {
+                        this.variant='danger';
+                        this.dismissCountDown = this.dismissSecs;
+                        this.info='该姓名已注册'
+                    }
+                    if(json=='e5uyWxii-;s!t') {
+                        this.variant='danger';
+                        this.dismissCountDown = this.dismissSecs;
+                        this.info='该用户已存在'
+                    }
+                    if(json=='\`s#t@u.k7d9yiIDd') {
+                        this.variant='danger';
+                        this.dismissCountDown = this.dismissSecs;
+                        this.info='学号与姓名不符'
+                    }
+				})
             })
         }
     },
