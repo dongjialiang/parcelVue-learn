@@ -1,9 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+
 Vue.use(Vuex);
+
+const state = {
+	count: 0
+}
+
 const store = new Vuex.Store({
-	state: {
-		count: 0
-	}
+	state
 })
+
 export default store

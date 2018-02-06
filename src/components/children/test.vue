@@ -7,6 +7,7 @@
 			<option v-for="option in fastWeb" :key="option.id" :value="option.value">{{option.text}}</option>
 		</b-form-select>
 		<p v-show="search.indexOf('zhihu')>0">建议输入的关键词：‘有哪些’，‘如何’，‘为什么’，‘怎么样’</p>
+		<p v-show="search.indexOf('steam')>0">大扎好，我系姑天乐，我四渣渣辉，探挽懒月，介四里没有挽过的船新版本，挤需体验三番钟，里造会干我一样，爱象节款游戏</p>
 	</div>
 </template>
 <script>
@@ -34,7 +35,9 @@ export default {
 				{value:'https://www.jianshu.com/search?q=',text:'简书'},
 				{value:'https://sspai.com/search/article?q=',text:'少数派'},
 				{value:'http://s.weibo.com/weibo/',text:'微博'},
-				{value:'https://juejin.im/search?query=',text:'掘金'}
+				{value:'https://juejin.im/search?query=',text:'掘金'},
+				{value:'https://www.oschina.net/search?scope=project&q=',text:'开源中国'},
+				{value:'https://developer.mozilla.org/zh-CN/search?q=',text:'MDN'}
 			],
 			search: 'https://www.baidu.com/s?wd=',
 			fastWeb: [

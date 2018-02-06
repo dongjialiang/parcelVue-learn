@@ -17,11 +17,12 @@
             </b-carousel-slide>
         </b-carousel>
         <content>{{slogan}}</content>
+        <div>123</div>
     </div>
 </template>
 
 <script>
-import image from '../../assets/image/*.png'
+import image from '../../assets/Banner/*.png'
 export default {
     data () {
         return {
