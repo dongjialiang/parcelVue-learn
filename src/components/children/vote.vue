@@ -12,9 +12,6 @@
 		</div>
 </template>
 <script>
-import axios from 'axios'
-import ip from '../../js/ipconfig'
-axios.defaults.baseURL='http://jw3.ngrok.xiaomiqiu.cn';
 export default {
 	data () {
 		return {
@@ -32,7 +29,7 @@ export default {
 		},
 		add (index) {
 			this.id=index
-			axios.post('/add', { id: this.id, account: this.$cookies.get('isLogin') }).then(res=>{
+			this.axios.post('/add', { id: this.id, account: this.$cookies.get('isLogin') }).then(res=>{
 				if (res.data=='6crtutcdanhkjta') {
 					this.dismissCountDown = this.dismissSecs,
 					this.info='与服务器断开连接'
@@ -50,56 +47,56 @@ export default {
 					this.classmates[index].approval_rate++
 				}
 			},res=>{
-				fetch('http://jw3.ngrok.xiaomiqiu.cn/add',{
-					method:'post',
-					mode: 'cors',
-					headers: {
-						'Access-Control-Allow-Origin': '*',
-						'Content-Type': 'application/json'
-					}, 
-					body:JSON.stringify({ 'id':this.id, 'account': this.$cookies.get('isLogin') })
-				})
-				.then(res=>res.json())
-				.then(json=>{
-					if (json=='6crtutcdanhkjta') {
-						this.dismissCountDown = this.dismissSecs,
-						this.info='与服务器断开连接'
-						this.variant='danger'
-					}
-					else if (json=='cjh----7tz@!&gjh') {
-						this.dismissCountDown = this.dismissSecs,
-						this.info='您已投票了，请勿重复投票'
-						this.variant='danger'
-					}
-					else {
-						this.dismissCountDown = this.dismissSecs,
-						this.info='提交成功'
-						this.variant='success'
-						this.classmates[index].approval_rate++
-					}
-				})
+				
 			})
-		}
-	},
-	mounted() {
-		axios.get('/user',{
-			emulateJSON:true
-		}).then(res=>{
-			this.classmates=res.data
-		},res=>{
-			fetch('http://jw3.ngrok.xiaomiqiu.cn/user',{
-				method:'get',
+			/* fetch('http://jw3.ngrok.xiaomiqiu.cn/add',{
+				method:'post',
 				mode: 'cors',
 				headers: {
 					'Access-Control-Allow-Origin': '*',
 					'Content-Type': 'application/json'
-				}
+				}, 
+				body:JSON.stringify({ 'id':this.id, 'account': this.$cookies.get('isLogin') })
 			})
 			.then(res=>res.json())
 			.then(json=>{
-				this.classmates=json
-			})
+				if (json=='6crtutcdanhkjta') {
+					this.dismissCountDown = this.dismissSecs,
+					this.info='与服务器断开连接'
+					this.variant='danger'
+				}
+				else if (json=='cjh----7tz@!&gjh') {
+					this.dismissCountDown = this.dismissSecs,
+					this.info='您已投票了，请勿重复投票'
+					this.variant='danger'
+				}
+				else {
+					this.dismissCountDown = this.dismissSecs,
+					this.info='提交成功'
+					this.variant='success'
+					this.classmates[index].approval_rate++
+				}
+			}) */
+		}
+	},
+	mounted() {
+		this.axios.get('/user',{
+			emulateJSON:true
+		}).then(res=>{
+			this.classmates=res.data
+		},res=>{})
+		/* fetch('http://jw3.ngrok.xiaomiqiu.cn/user',{
+			method:'get',
+			mode: 'cors',
+			headers: {
+				'Access-Control-Allow-Origin': '*',
+				'Content-Type': 'application/json'
+			}
 		})
+		.then(res=>res.json())
+		.then(json=>{
+			this.classmates=json
+		}) */
 	}
 }
 </script>
