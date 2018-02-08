@@ -18,7 +18,7 @@
             <span>{{confirmPwd?confirmPwd==pwd?pwdtip[1]:pwdtip[2]:pwdtip[3]}}</span>
         </b-form>
         <p>
-            <b-button :disabled="disabled" @click="signup">注册</b-button>
+            <b-button :disabled="disabled" v-touch:tap="signup" @click="signup">注册</b-button>
             <router-link to='/signin'>登录</router-link>
         </p>
     </div>
