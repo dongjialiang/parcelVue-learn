@@ -25,7 +25,7 @@ const routes=[
                 meta: {
                     validation: true
                 },
-                component: vote 
+                component: vote
             },
             {
                 path: 'test',

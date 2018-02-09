@@ -16,8 +16,10 @@
                 <b-img slot="img" :src="item" fluid-grow alt="image" class="img"/>
             </b-carousel-slide>
         </b-carousel>
-        <content>{{slogan}}</content>
-        <div>123</div>
+        <div class="container">
+            {{slogan}}
+            <div>123</div>
+        </div>
     </div>
 </template>
 

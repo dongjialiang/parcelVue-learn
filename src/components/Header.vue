@@ -4,11 +4,8 @@
             <router-link to="/"><img :src="img" /></router-link>
             <b-navbar-toggle target="nav_dropdown_collapse"></b-navbar-toggle>
             <b-collapse is-nav id="nav_dropdown_collapse">
-                <b-navbar-nav><router-link to="/">
-                    首页</router-link><router-link to="/vote">
-                    投票</router-link><router-link to="/test">
-                    实验</router-link><router-link to="/about">
-                    关于</router-link><b-button-group v-show="!account">
+                <b-navbar-nav><router-link :key="index" v-for="(item,index) in to" :to="item.path">{{ item.nav }}</router-link>
+                    <b-button-group v-show="!account">
                         <b-link to="/signin" class="sign">
                         登录</b-link>/<b-link to="/signup" class="sign">
                         注册</b-link>
@@ -22,6 +19,12 @@
 export default {
     data () {
         return {
+            to: [
+                { path: '/', nav: '首页' },
+                { path: '/vote', nav: '投票' },
+                { path: '/test', nav: '实验' },
+                { path: '/about', nav: '关于' }
+            ],
             img: require('../assets/logo.svg'),
             classchange: 'default',
             account: ''

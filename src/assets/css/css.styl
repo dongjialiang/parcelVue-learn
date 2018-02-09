@@ -9,40 +9,23 @@ a
 	font-size 2.3rem
 header
 	a
-		width 8rem
+		width 7.8rem
 		color font
 		&:hover
 			text-decoration none
 			color darken(font, 20%)
 		img
 			width 4rem
-	div,span
-		line-height 3.4rem
-		width 8rem
+	.btn-group,span
 		text-align center
+		width 8rem
+		line-height 3.4rem
 	.sign
-		width 2rem
+		width 4rem
 		font-size 1rem
-content
+//.选择器
+.container
 	font-size 2.8rem
-#test
-	font-size 1rem
-	text-align center
-	.form-control
-		width 29%
-		vertical-align middle
-		display inline-block
-		margin 1rem 0 1rem
-#vote
-	text-align center
-	li
-		font-size 3rem
-		list-style none
-		span
-			vertical-align middle
-		.btn
-			font-size 2rem
-			vertical-align middle
 .img
 	width 100%
 .default
@@ -67,7 +50,39 @@ content
 	a
 		&:hover
 			color: #666
-#signin,#signup
+.alertContainer
+	position fixed
+	top 3rem
+	left 5rem
+	z-index 3
+	width 100%
+	pointer-events none 
+	height 5rem
+	width 40rem
+	.alert
+		height 5rem
+		font-size 1.2rem
+		pointer-events auto
+//#选择器
+#test//测试页
+	font-size 1rem
+	text-align center
+	.form-control
+		width 29%
+		vertical-align middle
+		display inline-block
+		margin 1rem 0 1rem
+#vote//投票页
+	text-align center
+	li
+		font-size 3rem
+		list-style none
+		span
+			vertical-align middle
+		.btn
+			font-size 2rem
+			vertical-align middle
+#signin,#signup//登录注册页
 	font-size 1.5rem
 	.form-control
 		width 22rem
@@ -81,5 +96,4 @@ content
 		a
 			font-size 1.8rem
 			vertical-align middle
-.alertContainer
-	height 3.4rem
+

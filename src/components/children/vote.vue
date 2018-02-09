@@ -6,7 +6,7 @@
 				</b-alert>
 			</div>
 			<ul>
-				<li v-for='(user,key) in classmates' :key='user.id'><span>{{user.name}}-支持率：{{user.approval_rate}}</span><b-button v-touch:tap="add(key)" @click='add(key)'>支持</b-button></li>
+				<li v-for='(user,key) in classmates' :key='user.id'><span>{{user.name}}-支持率：{{user.approval_rate}}</span><b-button @click='add(key,user)'>支持</b-button></li>
 				<h2 v-show="classmates==''">投票系统已关闭或你的设备不支持</h2>
 			</ul>
 		</div>
@@ -27,9 +27,9 @@ export default {
 		countDownChanged (dismissCountDown) {
 			this.dismissCountDown = dismissCountDown
 		},
-		add (index) {
+		add (index,item) {
 			this.id=index
-			this.axios.post('/add', { id: this.id, account: this.$cookies.get('isLogin') }).then(res=>{
+			this.axios.patch('/add', { id: this.id, account: this.$cookies.get('isLogin') }).then(res=>{
 				if (res.data=='6crtutcdanhkjta') {
 					this.dismissCountDown = this.dismissSecs,
 					this.info='与服务器断开连接'
