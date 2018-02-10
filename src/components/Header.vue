@@ -4,7 +4,7 @@
             <router-link to="/"><img :src="img" /></router-link>
             <b-navbar-toggle target="nav_dropdown_collapse"></b-navbar-toggle>
             <b-collapse is-nav id="nav_dropdown_collapse">
-                <b-navbar-nav><router-link :key="index" v-for="(item,index) in to" :to="item.path">{{ item.nav }}</router-link>
+                <b-navbar-nav><router-link :key="index" v-for="(item,index) of to" :to="item.path">{{ item.nav }}</router-link>
                     <b-button-group v-show="!account">
                         <b-link to="/signin" class="sign">
                         登录</b-link>/<b-link to="/signup" class="sign">

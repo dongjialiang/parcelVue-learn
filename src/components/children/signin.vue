@@ -12,7 +12,7 @@
             <span>{{pwd.length>=6?/^[0-9a-zA-Z!@#$^*]{6,18}$/.test(pwd)?pwdtip[1]:pwdtip[2]:pwdtip[0]}}</span>
         </b-form>
         <p>
-            <b-button :disabled="disabled" @click="signin">登录</b-button>
+            <b-button :disabled="disabled" @click.stop="signin">登录</b-button>
             <router-link to='/signup'>注册</router-link>
         </p>
     </div>

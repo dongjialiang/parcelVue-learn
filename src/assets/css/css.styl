@@ -1,4 +1,5 @@
-font=rgba(0,0,0,.75)
+myblack=rgba(0,0,0,.75)
+mywhite=#fff
 *
     margin 0
     padding 0
@@ -10,10 +11,10 @@ a
 header
 	a
 		width 7.8rem
-		color font
+		color myblack
 		&:hover
-			text-decoration none
-			color darken(font, 20%)
+			text-decoration underline
+			color darken(myblack, 20%)
 		img
 			width 4rem
 	.btn-group,span
@@ -26,19 +27,19 @@ header
 //.选择器
 .container
 	font-size 2.8rem
-.img
-	width 100%
 .default
 	background-color #deb
+	a
+		color: #555
 .dark
 	background-color #000
-	color #fff
+	color mywhite
 	button
-		background-color rgba(255,255,255,.75)
+		background-color mywhite
 	a
-		color #fff
+		color darken(mywhite,25%)
 		&:hover
-			color: #ddd
+			color: mywhite
 		img
 			-webkit-filter drop-shadow(rgb(255, 204, 153) 4rem 0);
 			filter drop-shadow(rgb(255, 204, 153) 4rem 0);
@@ -46,7 +47,7 @@ header
 .quite
 	background-color rgb(254, 254, 234)
 .light
-	background-color #fff
+	background-color mywhite
 	a
 		&:hover
 			color: #666

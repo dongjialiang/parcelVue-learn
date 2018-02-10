@@ -4,7 +4,7 @@
 		</b-form-select><input type="text" class="form-control" placeholder="请输入想要搜索关键字" v-model="keyword" @keyup="get"/><b-button @click="query">search</b-button>
 		<b-form-select v-model="help" class="mb-3">
 			<option disabled :value='null'>请选择</option>
-			<option v-for="option in fastWeb" :key="option.id" :value="option.value">{{option.text}}</option>
+			<option v-for="option of fastWeb" :key="option.id" :value="option.value">{{option.text}}</option>
 		</b-form-select>
 		<p v-show="search.indexOf('zhihu')>0">建议输入的关键词：‘有哪些’，‘如何’，‘为什么’，‘怎么样’</p>
 		<p v-show="search.indexOf('steam')>0">大扎好，我系姑天乐，我四渣渣辉，探挽懒月，介四里没有挽过的船新版本，挤需体验三番钟，里造会干我一样，爱象节款游戏</p>
