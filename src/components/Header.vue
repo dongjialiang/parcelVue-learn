@@ -1,5 +1,5 @@
 <template>
-	<header>
+	<header id="head">
         <b-navbar :class="classchange" toggleable>
             <router-link to="/"><img :src="img" /></router-link>
             <b-navbar-toggle target="nav_dropdown_collapse"></b-navbar-toggle>

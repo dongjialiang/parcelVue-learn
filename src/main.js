@@ -5,6 +5,7 @@ import store from './store'
 import Vue2TouchEvents from 'vue2-touch-events'
 Vue.use(Vue2TouchEvents)
 //移动端手势
+//
 import FastClick from 'fastclick'
 //click
 import axios from 'axios'
