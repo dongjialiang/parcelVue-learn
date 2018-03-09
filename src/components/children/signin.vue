@@ -48,7 +48,7 @@ export default {
                     this.dismissCountDown = this.dismissSecs;
                     this.info = res.data.info
                 }
-                else {
+                if(res.data.info == '登录成功') {
                     this.$cookies.set('isLogin','1245465r654fghfgfwcb'+res.data.user,60*60*24*3)
                     this.$router.push({path:'/vote'})
                 }
