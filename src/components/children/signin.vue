@@ -43,13 +43,13 @@ export default {
         },
         signin() {
             this.axios.post('/signin', { name: this.name,pwd: this.pwd }).then(res=>{
-                if(res.data=='用户名错误' || res.data=='密码错误') {
+                if(res.data.info != '登录成功') {
                     this.variant = 'danger';
                     this.dismissCountDown = this.dismissSecs;
-                    this.info = res.data
+                    this.info = res.data.info
                 }
                 else {
-                    this.$cookies.set('isLogin','1245465r654fghfgfwcb'+res.data,60*60*24*3)
+                    this.$cookies.set('isLogin','1245465r654fghfgfwcb'+res.data.user,60*60*24*3)
                     this.$router.push({path:'/vote'})
                 }
             },res=>{
@@ -82,13 +82,13 @@ export default {
 })
 .then(res=>res.json())
 .then(json=>{
-    if(json=='用户名错误' || json=='密码错误') {
+    if(json.info != '登录成功') {
         this.variant = 'danger';
         this.dismissCountDown = this.dismissSecs;
-        this.info = json
+        this.info = json.info
     }
     else {
-        this.$cookies.set('isLogin','1245465r654fghfgfwcb'+json,60*60*24*3)
+        this.$cookies.set('isLogin','1245465r654fghfgfwcb'+json.user,60*60*24*3)
         this.$router.push({path:'/vote'})
     }
 })

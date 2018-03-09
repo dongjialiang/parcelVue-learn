@@ -104,13 +104,13 @@ export default {
 })
 .then(res=>res.json())
 .then(json=>{
-    if (json != '注册成功') {
+    if (json.info != '注册成功') {
         this.variant = 'danger';
         this.dismissCountDown = this.dismissSecs;
-        this.info = json
+        this.info = json.info
     }
     else {
-        this.$cookies.set('isLogin','1245465r654fghfgfwcb'+res.data,60*60*24*3)
+        this.$cookies.set('isLogin','1245465r654fghfgfwcb'+json.user,60*60*24*3)
         this.$router.push({path:'/vote'})
     }
 })
