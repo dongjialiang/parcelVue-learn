@@ -52,13 +52,13 @@ export default {
         },
         signup() {
             this.axios.post('/signup', { realName: this.realName,studyId: this.studyId,name: this.name,pwd: this.pwd }).then(res=>{
-                if (res.data != '注册成功') {
+                if (res.data.info != '注册成功') {
                     this.variant = 'danger';
                     this.dismissCountDown = this.dismissSecs;
-                    this.info = res.data
+                    this.info = res.data.info
                 }
                 else {
-                    this.$cookies.set('isLogin','1245465r654fghfgfwcb'+res.data,60*60*24*3)
+                    this.$cookies.set('isLogin','1245465r654fghfgfwcb'+res.data.user,60*60*24*3)
                     this.$router.push({path:'/vote'})
                 }
             },res=>{
