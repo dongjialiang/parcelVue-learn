@@ -1,7 +1,7 @@
 <template>
 	<div id="test">
-		<b-form-select v-model="search" :options="URLSearchParams" class="mb-3">
-		</b-form-select><input type="text" class="form-control" placeholder="请输入想要搜索关键字" v-model="keyword" @keyup="get"/><b-button @click="query">search</b-button>
+		<b-form-select v-model="search" :options="URLSearchParams" class="mb-3"></b-form-select>
+		<div class="input"><input class="form-control" placeholder="请输入想要搜索关键字" v-model="keyword" @keyup="get"/><font @click="query"><i class="fa fa-search" aria-hidden="true"></i></font></div>
 		<b-form-select v-model="help" class="mb-3">
 			<option disabled :value='null'>请选择</option>
 			<option v-for="option of fastWeb" :key="option.id" :value="option.value">{{option.text}}</option>

@@ -3,33 +3,30 @@ mywhite=#fff
 *
     margin 0
     padding 0
-html,body
-	height 100%
-	width 100%
 a
 	text-decoration none
-	text-align center
 	color #000
 	font-size 2.3rem
 header
 	a
-		width 8rem
 		color myblack
 		&:hover
 			text-decoration underline
 			color darken(myblack, 20%)
-		img
-			width 4rem
-	.btn-group,span
-		text-align center
-		width 8rem
-		line-height 3.4rem
-	.sign
-		width 4rem
-		font-size 1rem
-//.选择器
-.container
-	font-size 2.8rem
+.home//.选择器
+	margin-right 8rem
+.input
+	display inline-block
+	border 1px solid #657
+	width 25rem
+	border-radius .3rem
+	margin .8rem 0 0 1rem
+.p
+	text-indent 3.6rem
+	text-align left
+	word-break break-all
+.fa-search
+	font-size 3rem
 .default
 	background-color #deb
 	a
@@ -42,9 +39,8 @@ header
 	a
 		color darken(mywhite,25%)
 		&:hover
-			color: mywhite
+			color mywhite
 		img
-			-webkit-filter drop-shadow(rgb(255, 204, 153) 4rem 0);
 			filter drop-shadow(rgb(255, 204, 153) 4rem 0);
 			margin-left -8rem
 .quite
@@ -60,58 +56,80 @@ header
 	left 5rem
 	z-index 3
 	width 100%
-	pointer-events none 
-	height 5rem
+	pointer-events none
 	width 40rem
 	.alert
-		height 5rem
 		font-size 1.2rem
 		pointer-events auto
-//#选择器
+#listgroup-ex//#选择器
+	overflow auto
+	height 50rem
+	font-size 1.6rem
 #test//测试页
-	font-size 1rem
-	text-align center
+	select
+		width 15rem
+		border 1px solid #000
 	.form-control
-		width 29%
-		vertical-align middle
-		display inline-block
+		height 4rem
 		margin 1rem 0
 #vote//投票页
-	text-align center
+	.form-control
+		width 15rem
+		margin 0 2rem
+		border 1px solid #000
 	li
 		font-size 3rem
 		list-style none
-		span
-			vertical-align middle
-		.btn
-			font-size 2rem
-			vertical-align middle
 #signin,#signup//登录注册页
 	font-size 1.5rem
 	.form-control
-		width 22rem
-		font-size 2rem
-		display inline-block
 		margin .5rem
-	span
-		//换行
-		display inline-block
+	span//换行
 		width 15rem
 	p
-		text-align center
 		button
 			font-size 1.5rem
 		a
 			font-size 1.8rem
-			vertical-align middle
 #up
 	position fixed
-	bottom .1rem
-	right .6rem
-//
-::-webkit-scrollbar
-	width .5rem
+	bottom 3rem
+	right 4.8rem
+	border 1px solid #000
+	border-radius .3rem
+	padding .8rem 1.5rem
+::-webkit-scrollbar//滚动条样式
+	width .3rem
 ::-webkit-scrollbar-thumb
 	background #eee
-	box-shadow: inset 0 0 .1rem rgba(0,0,0,0.3)
+	box-shadow: inset 0 0 .3rem rgba(0,0,0,0.3)
 	border-radius .3rem
+html
+	overflow-x hidden
+body
+	width 100vw
+	overflow hidden
+    margin-right calc(100vw - 100%)
+a,span,#test,p,#vote//重复样式
+	text-align center
+.form-control,span,a,.fa-search,font
+	display inline-block
+	vertical-align middle
+.form-control,#up
+	font-size 2rem
+img,.sign
+	width 4rem
+.alert,.alertContainer
+	height 5rem
+#test,.sign
+	font-size 1rem
+.form-control
+	width 22rem
+	border 0
+.form-control:focus//去掉焦点
+	outline none
+	box-shadow  none
+span,a
+	width 8rem
+span,.btn-group
+	line-height 3.4rem

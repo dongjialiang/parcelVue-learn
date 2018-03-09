@@ -18,9 +18,18 @@ const routes=[
         components: { Header, Content },
         children:[
             {
-                path:'',
+                path: '',
                 component: home 
-            },{
+            },
+            {
+                path: 'list-item-1',
+                component: home
+            },
+            {
+                path: 'list-item-2',
+                component: home
+            },
+            {
                 path: 'vote',
                 meta: {
                     validation: true

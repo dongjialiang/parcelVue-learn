@@ -6,19 +6,19 @@
             </b-alert>
         </div>
         <b-form @keyup="keyup">
-            <b-form-input type="text" v-model="realName" :state="realNameState" placeholder="输入姓名"></b-form-input>
+            <div class="input"><input type="text" class="form-control" v-model="realName" :state="realNameState" placeholder="输入姓名" /><font v-show="realName" @click.stop="realName=''"><i class="fa fa-times"></i></font></div>
             <span>{{realName?(/^[\u4E00-\u9FA5A-Za-z]+$/).test(realName)?nametip[1]:nametip[4]:nametip[2]}}</span>
-            <b-form-input type="text" v-model="studyId" :state="studyIdState" placeholder="输入学号"></b-form-input>
+            <div class="input"><input type="text" class="form-control" v-model="studyId" :state="studyIdState" placeholder="输入学号" /><font v-show="studyId" @click.stop="studyId=''"><i class="fa fa-times"></i></font></div>
             <span>{{studyId?nametip[1]:nametip[3]}}</span>
-            <b-form-input type="text" v-model="name" :state="nameState" placeholder="输入用户名"></b-form-input>
+            <div class="input"><input type="text" class="form-control" v-model="name" :state="nameState" placeholder="输入用户名" /><font v-show="name" @click.stop="name=''"><i class="fa fa-times"></i></font></div>
             <span>{{name?nametip[1]:nametip[0]}}</span>
-            <b-form-input type="text" v-model="pwd" :state="pwdState" placeholder="输入密码"></b-form-input>
+            <div class="input"><input type="text" class="form-control" v-model="pwd" :state="pwdState" placeholder="输入密码" /><font v-show="pwd" @click.stop="pwd=''"><i class="fa fa-times"></i></font></div>
             <span>{{pwd.length>=6?/^[0-9a-zA-Z!@#$^*]{6,18}$/.test(pwd)?pwdtip[i]:pwdtip[4]:pwdtip[0]}}</span>
-            <b-form-input type="text" v-model="confirmPwd" :state="confirmPwdState" placeholder="确认密码"></b-form-input>
+            <div class="input"><input type="text" class="form-control" v-model="confirmPwd" :state="confirmPwdState" placeholder="确认密码" /><font v-show="confirmPwd" @click.stop="confirmPwd=''"><i class="fa fa-times"></i></font></div>
             <span>{{confirmPwd?confirmPwd==pwd?pwdtip[1]:pwdtip[2]:pwdtip[3]}}</span>
         </b-form>
         <p>
-            <b-button :disabled="disabled" @click.stop="signup">注册</b-button>
+            <button class="form-control" :disabled="disabled" @click.stop="signup">注册</button>
             <router-link to='/signin'>登录</router-link>
         </p>
     </div>
@@ -52,77 +52,20 @@ export default {
         },
         signup() {
             this.axios.post('/signup', { realName: this.realName,studyId: this.studyId,name: this.name,pwd: this.pwd }).then(res=>{
-                if (res.data=='5c7yguhxthW@ymkiul8}[') {
-                    this.variant='danger';
+                if (res.data != '注册成功') {
+                    this.variant = 'danger';
                     this.dismissCountDown = this.dismissSecs;
-                    this.info='该姓名不能注册'
+                    this.info = res.data
                 }
-                if(res.data.indexOf('si#gtutgdfgs6g7n8up')>-1) {
-                    this.variant='success';
-                    this.dismissCountDown = this.dismissSecs;
-                    this.info='注册成功';
-                    this.$cookies.set('isLogin','1245465r654fghfgfwcb'+res.data.substring(19,res.data.length),60*60*24*3)
+                else {
+                    this.$cookies.set('isLogin','1245465r654fghfgfwcb'+res.data,60*60*24*3)
                     this.$router.push({path:'/vote'})
-                }
-                if(res.data=='registernetyerrutmd') {
-                    this.variant='danger';
-                    this.dismissCountDown = this.dismissSecs;
-                    this.info='该姓名已注册'
-                }
-                if(res.data=='e5uyWxii-;s!t') {
-                    this.variant='danger';
-                    this.dismissCountDown = this.dismissSecs;
-                    this.info='该用户已存在'
-                }
-                if(res.data=='\`s#t@u.k7d9yiIDd') {
-                    this.variant='danger';
-                    this.dismissCountDown = this.dismissSecs;
-                    this.info='学号与姓名不符'
                 }
             },res=>{
-                this.variant='danger';
+                this.variant = 'danger';
                 this.dismissCountDown = this.dismissSecs;
-                this.info='服务器已关闭'
+                this.info = '服务器已关闭'
             })
-            /* fetch('http://jw3.ngrok.xiaomiqiu.cn/signup',{
-                method:'post',
-                mode: 'cors',
-                headers: {
-                    'Access-Control-Allow-Origin': '*',
-                    'Content-Type': 'application/json'
-                }, 
-                body:JSON.stringify({ 'realName': this.realName,'studyId': this.studyId,'name': this.name,'pwd': this.pwd })
-            })
-            .then(res=>res.json())
-            .then(json=>{
-                if(json.indexOf('si#gtutgdfgs6g7n8up')>-1) {
-                    this.variant='success';
-                    this.dismissCountDown = this.dismissSecs;
-                    this.info='注册成功';
-                    this.$cookies.set('isLogin','1245465r654fghfgfwcb'+json.substring(19,res.data.length),60*60*24*3)
-                    this.$router.push({path:'/vote'})
-                }
-                if(json=='registernetyerrutmd') {
-                    this.variant='danger';
-                    this.dismissCountDown = this.dismissSecs;
-                    this.info='该姓名已注册'
-                }
-                if(json=='e5uyWxii-;s!t') {
-                    this.variant='danger';
-                    this.dismissCountDown = this.dismissSecs;
-                    this.info='该用户已存在'
-                }
-                if(json=='\`s#t@u.k7d9yiIDd') {
-                    this.variant='danger';
-                    this.dismissCountDown = this.dismissSecs;
-                    this.info='学号与姓名不符'
-                }
-            })
-            .catch(e => {
-                this.variant='danger';
-                this.dismissCountDown = this.dismissSecs;
-                this.info='服务器已关闭'
-            }) */
         }
     },
     computed: {
@@ -150,4 +93,30 @@ export default {
         }
     }
 }
+/* fetch('https://quiet-mesa-99852.herokuapp.com/signup',{
+    method:'post',
+    mode: 'cors',
+    headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json'
+    }, 
+    body:JSON.stringify({ 'realName': this.realName,'studyId': this.studyId,'name': this.name,'pwd': this.pwd })
+})
+.then(res=>res.json())
+.then(json=>{
+    if (json != '注册成功') {
+        this.variant = 'danger';
+        this.dismissCountDown = this.dismissSecs;
+        this.info = json
+    }
+    else {
+        this.$cookies.set('isLogin','1245465r654fghfgfwcb'+res.data,60*60*24*3)
+        this.$router.push({path:'/vote'})
+    }
+})
+.catch(e => {
+    this.variant='danger';
+    this.dismissCountDown = this.dismissSecs;
+    this.info='服务器已关闭'
+}) */
 </script>
