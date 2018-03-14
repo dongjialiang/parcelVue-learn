@@ -6,9 +6,9 @@
             </b-alert>
         </div>
         <b-form @keyup="keyup">
-            <div class="input"><input type="text" class="form-control" v-model="realName" :state="realNameState" placeholder="输入姓名" /><font v-show="realName" @click.stop="realName=''"><i class="fa fa-times"></i></font></div>
+            <div class="input"><input type="text" class="form-control" v-model="realName" :state="realNameState" placeholder="例：梁家栋" /><font v-show="realName" @click.stop="realName=''"><i class="fa fa-times"></i></font></div>
             <span>{{realName?(/^[\u4E00-\u9FA5A-Za-z]+$/).test(realName)?nametip[1]:nametip[4]:nametip[2]}}</span>
-            <div class="input"><input type="text" class="form-control" v-model="studyId" :state="studyIdState" placeholder="输入学号" /><font v-show="studyId" @click.stop="studyId=''"><i class="fa fa-times"></i></font></div>
+            <div class="input"><input type="text" class="form-control" v-model="studyId" :state="studyIdState" placeholder="例：xxxxxxxxx" /><font v-show="studyId" @click.stop="studyId=''"><i class="fa fa-times"></i></font></div>
             <span>{{studyId?nametip[1]:nametip[3]}}</span>
             <div class="input"><input type="text" class="form-control" v-model="name" :state="nameState" placeholder="输入用户名" /><font v-show="name" @click.stop="name=''"><i class="fa fa-times"></i></font></div>
             <span>{{name?nametip[1]:nametip[0]}}</span>

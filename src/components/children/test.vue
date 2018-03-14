@@ -25,6 +25,7 @@ export default {
 				{value:'https://yandex.ru/yandsearch?clid=124526&text=',text:'yandex'},
 				{value:'https://zh.wikihow.com/wikiHowTo?search=',text:'wikihow'},
 				{value:'https://en.wikipedia.org/wiki/',text:'wikipedia'},
+				{value: 'https://www.wolframalpha.com/input/?i=', text: 'wolfram'},
 				{value:'https://www.sogou.com/web?query=',text:'sogou'},
 				{value:'https://segmentfault.com/search?q=',text:'segmentfault'},
 				{value:'http://huaban.com/search/?q=',text:'花瓣'},

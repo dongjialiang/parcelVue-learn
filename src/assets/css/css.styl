@@ -1,20 +1,20 @@
 myblack=rgba(0,0,0,.75)
 mywhite=#fff
-*
+html,body
     margin 0
     padding 0
 a
 	text-decoration none
 	color #000
-	font-size 2.3rem
+	font-size 1.3rem
 header
 	a
 		color myblack
 		&:hover
 			text-decoration underline
 			color darken(myblack, 20%)
-.home//.选择器
-	margin-right 8rem
+.home
+	margin 0 8rem 0 0
 .input
 	display inline-block
 	border 1px solid #657
@@ -38,11 +38,11 @@ header
 		background-color mywhite
 	a
 		color darken(mywhite,25%)
+		overflow visible
 		&:hover
 			color mywhite
 		img
-			filter drop-shadow(rgb(255, 204, 153) 4rem 0);
-			margin-left -8rem
+			filter: invert(90%) sepia(1);
 .quite
 	background-color rgb(254, 254, 234)
 .light
@@ -61,7 +61,7 @@ header
 	.alert
 		font-size 1.2rem
 		pointer-events auto
-#listgroup-ex//#选择器
+#listgroup-ex
 	overflow auto
 	height 50rem
 	font-size 1.6rem
@@ -87,10 +87,7 @@ header
 	span//换行
 		width 15rem
 	p
-		button
-			font-size 1.5rem
-		a
-			font-size 1.8rem
+		font-size 1.5rem
 #up
 	position fixed
 	bottom 3rem
@@ -109,8 +106,8 @@ html
 body
 	width 100vw
 	overflow hidden
-    margin-right calc(100vw - 100%)
-a,span,#test,p,#vote//重复样式
+    margin 0 calc(100vw - 100%) 0 0
+a,span,#test,p,#vote
 	text-align center
 .form-control,span,a,.fa-search,font
 	display inline-block
@@ -132,4 +129,4 @@ img,.sign
 span,a
 	width 8rem
 span,.btn-group
-	line-height 3.4rem
+	line-height 2rem

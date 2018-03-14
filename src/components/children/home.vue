@@ -20,7 +20,7 @@
         </b-carousel><br/>
         <b-container fluid id="scrollTop">
             <b-row>
-                <b-col cols='8'>
+                <b-col cols="8">
                     <div id="listgroup-ex">
                         <h1 id="list-item-1">{{slogan}}</h1>
                         <p class="p" v-if="showB">{{text1}}</p>
@@ -28,7 +28,7 @@
                         <p class="p" v-if="showC">{{text1}}</p>
                     </div>
                 </b-col>
-                <b-col cols='4'>
+                <b-col cols="4">
                     <b-list-group v-b-scrollspy:listgroup-ex>
                         <b-list-group-item v-for="(title,index) of title" :key="index" :href="title">{{label[index]}}</b-list-group-item>
                     </b-list-group>
