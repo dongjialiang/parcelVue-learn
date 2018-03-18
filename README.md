@@ -1,2 +1,2 @@
 # parcelVueLearn
-[demo](https://dongjialiang.github.io/parcelVue-learn/build)
+[demo](https://dongjialiang.github.io/parcelVueLearn/build)
