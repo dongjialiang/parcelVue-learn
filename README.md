@@ -1,2 +1,2 @@
-# parcel_Vue_learn
+# parcelVueLearn
 [demo](https://dongjialiang.github.io/parcelVue-learn/build)
