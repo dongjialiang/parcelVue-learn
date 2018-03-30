@@ -28,6 +28,9 @@ fontawesome.library.add(solid)
 //字体真(๑•̀ㅂ•́)و✧样式
 import './assets/js/rem'
 //响应式
+import VePie from 'v-charts/lib/pie'
+Vue.component(VePie.name, VePie)
+//图表(饼状图)
 Vue.use(Alert)
 Vue.use(Carousel)
 Vue.use(Form)

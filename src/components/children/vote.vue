@@ -5,6 +5,7 @@
 					{{info}} 这条消息将在 {{dismissCountDown}} 秒后消失...
 				</b-alert>
 			</div>
+			<ve-pie :data="chartData" :settings="chartSettings"></ve-pie>
 			<ul>
 				<li v-for='(user,key) of classmates' :key='user.id'><font>{{user.name}}-支持率：{{user.approval_rate}}</font><button class="form-control" @click='add(key,user)'>支持</button></li>
 				<h2 v-show="classmates==''">投票系统已关闭或你的设备不支持</h2>
@@ -46,7 +47,15 @@ export default {
 		this.axios.get('/user',{
 			emulateJSON:true
 		}).then(res=>{
-			this.classmates=res.data
+			this.classmates=res.data,
+			this.chartData = {
+				columns: ['id', 'name', 'approval_rate'],
+				rows: this.classmates
+			}
+			this.chartSettings = {
+				dimension: 'name',
+				metrics: 'approval_rate'
+			}
 		},res=>{})
 	}
 }
