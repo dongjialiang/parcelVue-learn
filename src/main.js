@@ -20,12 +20,12 @@ import VueCookies from 'vue-cookies'
 //import './assets/css/bootstrap.min'
 import './assets/css/css.styl'
 //样式
-import fontawesome from '@fortawesome/fontawesome'
+/* import fontawesome from '@fortawesome/fontawesome'
 import solid from '@fortawesome/fontawesome-free-solid'
 
 // Add the icon to the library so you can use it in your page
 fontawesome.library.add(solid)
-//字体真(๑•̀ㅂ•́)و✧样式
+//字体真(๑•̀ㅂ•́)و✧样式 */
 import './assets/js/rem'
 //响应式
 import VePie from 'v-charts/lib/pie'
