@@ -3,12 +3,18 @@ import Router from 'vue-router'
 
 import Header from '../components/Header.vue'
 import Content from '../components/Content.vue'
-import home from '../components/children/home.vue'
+const home = () => import('../components/children/home.vue')
+const vote = () => import('../components/children/vote.vue')
+const test = () => import('../components/children/test.vue')
+const about = () => import('../components/children/about.vue')
+const signin = () => import('../components/children/signin.vue')
+const signup = () => import('../components/children/signup.vue')
+/* import home from '../components/children/home.vue'
 import vote from '../components/children/vote.vue'
 import test from '../components/children/test.vue'
 import about from '../components/children/about.vue'
 import signin from '../components/children/signin.vue'
-import signup from '../components/children/signup.vue'
+import signup from '../components/children/signup.vue' */
 
 Vue.use(Router);
 
