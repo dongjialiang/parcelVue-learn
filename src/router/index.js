@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Header from '../components/Header.vue'
 import Content from '../components/Content.vue'
 /* const home = () => import('../components/children/home.vue')
 const vote = () => import('../components/children/vote.vue')
@@ -21,11 +20,11 @@ Vue.use(Router);
 const routes=[
     {
         path: '/',
-        components: { Header, Content },
+        components: { Content },
         children:[
             {
                 path: '',
-                component: home 
+                component: home
             },
             {
                 path: 'list-item-1',
@@ -63,8 +62,8 @@ const routes=[
 ]
 
 const router = new Router({
-    routes
-})
+    routes,
+});
 
 router.beforeEach((to,from,next)=>{
     if(to.meta.validation) {
@@ -72,11 +71,11 @@ router.beforeEach((to,from,next)=>{
             router.push({path:'signin'})
         }
         else {
-            next()
+            next();
         }
     }
     else
-        next()
-})
+        next();
+});
 
-export default router
+export default router;

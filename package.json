@@ -8,6 +8,9 @@
         "dev": "parcel index.html",
         "build": "parcel build index.html -d build --public-url ."
     },
+    "alias": {
+        "vue": "./node_modules/vue/dist/vue.common.js"
+    },
     "dependencies": {
         "@fortawesome/fontawesome": "^1.1.4",
         "@fortawesome/fontawesome-free-solid": "^5.0.8",
@@ -17,16 +20,18 @@
         "bootstrap-vue": "^2.0.0-rc.1",
         "echarts": "^4.0.4",
         "fastclick": "^1.0.6",
-        "parcel-bundler": "^1.6.2",
-        "parcel-plugin-vue": "^1.5.0",
         "stylus": "^0.54.5",
         "v-charts": "^1.16.8",
         "vue": "^2.5.16",
         "vue-cookies": "^1.5.4",
-        "vue-loader": "^15.4.2",
         "vue-router": "^3.0.1",
         "vue2-touch-events": "^1.1.1",
         "vuex": "^3.0.1"
     },
-    "devDependencies": {}
+    "devDependencies": {
+        "@vue/component-compiler-utils": "^2.3.0",
+        "babel-core": "^6.26.3",
+        "parcel-bundler": "^1.10.3",
+        "vue-template-compiler": "^2.5.17"
+    }
 }
