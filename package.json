@@ -17,6 +17,7 @@
         "autoprefixer": "^9.4.5",
         "axios": "^0.18.0",
         "babel-preset-env": "^1.6.1",
+        "bootstrap": "^4.2.1",
         "bootstrap-vue": "^2.0.0-rc.1",
         "echarts": "^4.0.4",
         "fastclick": "^1.0.6",

@@ -17,7 +17,7 @@ import { Scrollspy } from 'bootstrap-vue/es/directives';
 //UI库
 import VueCookies from 'vue-cookies';
 //cookies
-//import './assets/css/bootstrap.min'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/css/css.styl';
 //样式
 /* import fontawesome from '@fortawesome/fontawesome'
