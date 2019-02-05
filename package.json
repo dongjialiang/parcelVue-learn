@@ -23,7 +23,7 @@
         "fastclick": "^1.0.6",
         "stylus": "^0.54.5",
         "v-charts": "^1.16.8",
-        "vue": "^2.5.21",
+        "vue": "^2.6.2",
         "vue-cookies": "^1.5.4",
         "vue-hot-reload-api": "^2.3.1",
         "vue-router": "^3.0.1",
