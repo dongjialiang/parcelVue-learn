@@ -34,6 +34,6 @@
         "@vue/component-compiler-utils": "^2.3.0",
         "babel-core": "^6.26.3",
         "parcel-bundler": "^1.10.3",
-        "vue-template-compiler": "^2.5.21"
+        "vue-template-compiler": "^2.6.8"
     }
 }
