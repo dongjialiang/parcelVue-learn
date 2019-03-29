@@ -13,19 +13,14 @@ import App from './App.vue';
 //界面入口
 //import BootStrapVue from 'bootstrap-vue'
 import { Alert, Carousel, Form, FormSelect, Image, Navbar, Layout, ListGroup } from 'bootstrap-vue/es/components';
-import { Scrollspy } from 'bootstrap-vue/es/directives';
+import { Scrollspy } from 'bootstrap-vue/es/directives/';
 //UI库
 import VueCookies from 'vue-cookies';
 //cookies
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-vue/dist/bootstrap-vue.min.css'
 import './assets/css/css.styl';
 //样式
-/* import fontawesome from '@fortawesome/fontawesome'
-import solid from '@fortawesome/fontawesome-free-solid'
-
-// Add the icon to the library so you can use it in your page
-fontawesome.library.add(solid)
-//字体真(๑•̀ㅂ•́)و✧样式 */
 import './assets/js/rem';
 //响应式
 import VePie from 'v-charts/lib/pie';

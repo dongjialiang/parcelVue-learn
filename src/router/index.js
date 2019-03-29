@@ -17,11 +17,11 @@ import signup from '../components/children/signup.vue'
 
 Vue.use(Router);
 
-const routes=[
+const routes = [
     {
         path: '/',
         components: { Content },
-        children:[
+        children: [
             {
                 path: '',
                 component: home
@@ -43,11 +43,11 @@ const routes=[
             },
             {
                 path: 'test',
-                component: test 
+                component: test
             },
             {
                 path: 'about',
-                component: about 
+                component: about
             },
             {
                 path: 'signin',
@@ -65,10 +65,10 @@ const router = new Router({
     routes,
 });
 
-router.beforeEach((to,from,next)=>{
-    if(to.meta.validation) {
+router.beforeEach((to, from, next) => {
+    if (to.meta.validation) {
         if (!window.$cookies.get('isLogin')) {
-            router.push({path:'signin'})
+            router.push({ path: 'signin' })
         }
         else {
             next();

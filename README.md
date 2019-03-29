@@ -10,10 +10,10 @@ Run `yarn install`
 
 ## Dev
 
-Run `yarn run dev` for dev server. Navigate to `http://localhost:1234/`.
+Run `yarn dev` for dev server. Navigate to `http://localhost:1234/`.
 
 ## Build
 
-Run `yarn run build` to build the project. The build artifacts will be stored in the `build/` derctory.
+Run `yarn build` to build the project. The build artifacts will be stored in the `build/` derctory.
 
 [demo](https://dongjialiang.github.io/parcelVueLearn/build)
