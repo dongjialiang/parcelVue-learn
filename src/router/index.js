@@ -68,10 +68,9 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
     if (to.meta.validation) {
         if (!window.$cookies.get('isLogin')) {
-            router.push({ path: 'signin' })
-        }
-        else {
-            next();
+            router.push({ path: 'signin' }).catch(err => err)
+        } else {
+            next()
         }
     }
     else

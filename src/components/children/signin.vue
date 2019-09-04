@@ -17,7 +17,7 @@
           v-model="name"
           :state="nameState"
           placeholder="输入用户名"
-        >
+        />
         <font v-show="name" @click.stop="name=''">
           <i class="fa fa-times"></i>
         </font>
@@ -30,7 +30,7 @@
           v-model="pwd"
           :state="pwdState"
           placeholder="输入密码"
-        >
+        />
         <font v-show="pwd" @click.stop="pwd=''">
           <i class="fa fa-times"></i>
         </font>
@@ -74,14 +74,15 @@ export default {
             this.variant = "danger";
             this.dismissCountDown = this.dismissSecs;
             this.info = res.data.info;
-          }
-          if (res.data.info == "登录成功") {
+          } else if (res.data.info == "登录成功") {
             this.$cookies.set(
               "isLogin",
               "1245465r654fghfgfwcb" + res.data.user,
               60 * 60 * 24 * 3
             );
-            this.$router.push({ path: "/vote" });
+            this.$router
+                .push({ path: "vote" })
+                .catch(err => err);
           }
         },
         res => {

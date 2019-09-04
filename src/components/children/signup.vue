@@ -17,7 +17,7 @@
           v-model="realName"
           :state="realNameState"
           placeholder="例：梁家栋"
-        >
+        />
         <font v-show="realName" @click.stop="realName=''">
           <i class="fa fa-times"></i>
         </font>
@@ -30,7 +30,7 @@
           v-model="studyId"
           :state="studyIdState"
           placeholder="例：xxxxxxxxx"
-        >
+        />
         <font v-show="studyId" @click.stop="studyId=''">
           <i class="fa fa-times"></i>
         </font>
@@ -43,14 +43,14 @@
           v-model="name"
           :state="nameState"
           placeholder="输入用户名"
-        >
+        />
         <font v-show="name" @click.stop="name=''">
           <i class="fa fa-times"></i>
         </font>
       </div>
       <span>{{name?nametip[1]:nametip[0]}}</span>
       <div class="input">
-        <input type="text" class="form-control" v-model="pwd" :state="pwdState" placeholder="输入密码">
+        <input type="text" class="form-control" v-model="pwd" :state="pwdState" placeholder="输入密码" />
         <font v-show="pwd" @click.stop="pwd=''">
           <i class="fa fa-times"></i>
         </font>
@@ -63,7 +63,7 @@
           v-model="confirmPwd"
           :state="confirmPwdState"
           placeholder="确认密码"
-        >
+        />
         <font v-show="confirmPwd" @click.stop="confirmPwd=''">
           <i class="fa fa-times"></i>
         </font>
@@ -140,7 +140,9 @@ export default {
                 "1245465r654fghfgfwcb" + res.data.user,
                 60 * 60 * 24 * 3
               );
-              this.$router.push({ path: "/vote" });
+              this.$router
+                .push({ path: "vote" })
+                .catch(err => err);
             }
           },
           res => {
