@@ -17,7 +17,7 @@
         "babel-preset-env": "^1.6.1",
         "bootstrap": "^4.2.1",
         "bootstrap-vue": "^2.0.0-rc.28",
-        "echarts": "^4.0.4",
+        "echarts": "^4.4.0",
         "fastclick": "^1.0.6",
         "jquery": "^3.4.1",
         "popper.js": "^1.15.0",
