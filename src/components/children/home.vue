@@ -15,7 +15,7 @@
       <b-carousel-slide v-for="(item,index) of img" :key="index">
         <h1>{{captions[index]}}</h1>
         <p>{{texts[index]}}</p>
-        <b-img slot="img" :src="item" fluid-grow alt="image" class="img"/>
+        <b-img-lazy slot="img" :src="item" fluid-grow alt="image" class="img"/>
       </b-carousel-slide>
     </b-carousel>
     <br>
@@ -77,7 +77,7 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener("scroll", this.handlerScroll);
+    window.addEventListener("scroll", this.handlerScroll, false);
     (document.getElementById("up").style.display = "none"),
       setTimeout(() => {
         this.showB = true;
@@ -88,17 +88,17 @@ export default {
   },
   methods: {
     swipeLeft() {
-      if (this.slide + 1 == 4) this.slide = 0;
-      else this.slide++;
+      this.slide = (this.slide + 1) % 4;
     },
     swipeRight() {
-      if (this.slide - 1 == -1) this.slide = 3;
-      else this.slide--;
+      this.slide = (this.slide - 1 + 4) % 4;
     },
     handlerScroll() {
-      if (
-        document.getElementById("scrollTop").getBoundingClientRect().top < 0
-      ) {
+      const scrollTop = document.querySelector("#scrollTop");
+      if (!scrollTop) {
+        return;
+      }
+      if (scrollTop.getBoundingClientRect().top < 0) {
         document.getElementById("up").style.display = "block";
       } else {
         document.getElementById("up").style.display = "none";
@@ -106,9 +106,9 @@ export default {
     },
     backTop() {
       event.preventDefault();
-      var timer = setInterval(() => {
+      const timer = setInterval(() => {
         /*设置每次滚动的时间*/
-        var scroll =
+        const scroll =
           document.documentElement.scrollTop |
           document.body.scrollTop; /*滚动条高度*/
         window.scrollTo(
@@ -123,7 +123,7 @@ export default {
     }
   },
   destroyed() {
-    window.removeEventListener("scroll", this.handlerScroll);
+    window.removeEventListener("scroll", this.handlerScroll, false);
   }
 };
 </script>

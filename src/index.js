@@ -2,18 +2,56 @@ import Vue from 'vue'
 import router from './router'
 import store from './store'
 //vue,router,store
-import Vue2TouchEvents from 'vue2-touch-events';
-Vue.use(Vue2TouchEvents);
-//移动端手势
-import FastClick from 'fastclick';
-//click
 import axios from 'axios';
 //http客户端
 import App from './App.vue';
 //界面入口
+import Vue2TouchEvents from 'vue2-touch-events';
+Vue.use(Vue2TouchEvents);
+// 手势
 //import BootStrapVue from 'bootstrap-vue'
-import { Alert, Carousel, Form, FormSelect, Image, Navbar, Layout, ListGroup } from 'bootstrap-vue/es/components';
-import { Scrollspy } from 'bootstrap-vue/es/directives/';
+import {
+    BAlert,
+    BForm,
+    BCarousel,
+    BFormSelect,
+    BNavbar,
+    BContainer,
+    BListGroup,
+    BNavbarToggle,
+    BCollapse,
+    BNavbarBrand,
+    BNavbarNav,
+    BCarouselSlide,
+    BCol,
+    BRow,
+    BListGroupItem,
+    BImgLazy,
+} from 'bootstrap-vue';
+Vue.component('b-alert', BAlert);
+Vue.component('b-form', BForm);
+
+Vue.component('b-carousel', BCarousel);
+Vue.component('b-carousel-slide', BCarouselSlide);
+Vue.component('b-img-lazy', BImgLazy);
+
+Vue.component('b-form-select', BFormSelect);
+
+Vue.component('b-navbar', BNavbar);
+Vue.component('b-navbar-toggle', BNavbarToggle);
+Vue.component('b-navbar-brand', BNavbarBrand);
+Vue.component('b-navbar-nav', BNavbarNav);
+
+Vue.component('b-list-group', BListGroup);
+Vue.component('b-list-group-item', BListGroupItem);
+
+Vue.component('b-container', BContainer);
+Vue.component('b-collapse', BCollapse);
+Vue.component('b-row', BRow);
+Vue.component('b-col', BCol);
+// 
+import { VBScrollspy } from 'bootstrap-vue';
+Vue.directive('b-scrollspy', VBScrollspy);
 //UI库
 import VueCookies from 'vue-cookies';
 //cookies
@@ -26,23 +64,11 @@ import './assets/js/rem';
 import VePie from 'v-charts/lib/pie';
 Vue.component(VePie.name, VePie);
 //图表(饼状图)
-Vue.use(Alert)
-Vue.use(Carousel)
-Vue.use(Form)
-Vue.use(FormSelect)
-Vue.use(Image)
-Vue.use(Navbar)
-Vue.use(Scrollspy)
-Vue.use(Layout)
-Vue.use(ListGroup)
-//Vue.use(BootStrapVue);
-//
 Vue.use(VueCookies);
-FastClick(document.body);
 //
-axios.defaults.baseURL='https://quiet-mesa-99852.herokuapp.com';//本地
+axios.defaults.baseURL='https://quiet-mesa-99852.herokuapp.com';
 //axios默认URL
-Vue.prototype.axios=axios;
+Vue.prototype.axios = axios;
 //
 const app = new Vue({
     el: '#app',
