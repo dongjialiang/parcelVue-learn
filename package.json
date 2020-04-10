@@ -18,7 +18,7 @@
         "bootstrap": "^4.2.1",
         "bootstrap-vue": "^2.0.0-rc.28",
         "echarts": "^4.0.4",
-        "jquery": "^3.4.1",
+        "jquery": "^3.5.0",
         "popper.js": "^1.15.0",
         "stylus": "^0.54.5",
         "v-charts": "^1.16.8",
